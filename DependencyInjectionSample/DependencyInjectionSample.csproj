@@ -35,7 +35,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -52,7 +51,6 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
   </ItemGroup>
-
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -72,38 +70,48 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
-
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="Prism.Unity" Version="7.1.0.431" />
+    <PackageReference Include="Prism.Unity" Version="7.1.0.431&#xD;" />
+    <PackageReference Include="Prism.Wpf">
+      <Version>7.1.0.431</Version>
+    </PackageReference>
   </ItemGroup>
-
+  <ItemGroup>
+    <ProjectReference Include="..\DependencyInjectionSample.Content\DependencyInjectionSample.Content.csproj">
+      <Project>{fa822c6e-8742-4466-9d3f-d77e090f2a1c}</Project>
+      <Name>DependencyInjectionSample.Content</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DependencyInjectionSample.Footer\DependencyInjectionSample.Footer.csproj">
+      <Project>{16522321-2e04-47ea-8425-9c52d291c735}</Project>
+      <Name>DependencyInjectionSample.Footer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DependencyInjectionSample.Header\DependencyInjectionSample.Header.csproj">
+      <Project>{1ae79938-23cc-4d9a-9b14-53e1954efd52}</Project>
+      <Name>DependencyInjectionSample.Header</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
