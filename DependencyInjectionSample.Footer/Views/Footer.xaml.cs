@@ -3,11 +3,11 @@
 namespace DependencyInjectionSample.Footer.Views
 {
     /// <summary>
-    /// Interaction logic for FooterView
+    /// Interaction logic for Footer
     /// </summary>
-    public partial class FooterView : UserControl
+    public partial class Footer : UserControl
     {
-        public FooterView()
+        public Footer()
         {
             InitializeComponent();
         }

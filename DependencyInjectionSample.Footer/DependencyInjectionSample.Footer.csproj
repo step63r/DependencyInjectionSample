@@ -63,9 +63,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ViewModels\FooterViewViewModel.cs" />
-    <Compile Include="Views\FooterView.xaml.cs">
-      <DependentUpon>FooterView.xaml</DependentUpon>
+    <Compile Include="ViewModels\FooterViewModel.cs" />
+    <Compile Include="Views\Footer.xaml.cs">
+      <DependentUpon>Footer.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -79,7 +79,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Page Include="Views\FooterView.xaml">
+    <Page Include="Views\Footer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
