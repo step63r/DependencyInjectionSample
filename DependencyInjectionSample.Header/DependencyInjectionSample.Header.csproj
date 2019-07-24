@@ -78,7 +78,12 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DependencyInjectionSample.Core\DependencyInjectionSample.Core.csproj">
+      <Project>{f4e74acd-7497-4329-a1b4-f8927873b3dd}</Project>
+      <Name>DependencyInjectionSample.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Views\Header.xaml">
       <SubType>Designer</SubType>
@@ -86,6 +91,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CommonServiceLocator">
+      <Version>2.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.Core">
+      <Version>7.1.0.431</Version>
+    </PackageReference>
     <PackageReference Include="Prism.Unity">
       <Version>7.1.0.431</Version>
     </PackageReference>

@@ -8,6 +8,9 @@ namespace DependencyInjectionSample.Footer.ViewModels
 {
     public class FooterViewViewModel : BindableBase
     {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public FooterViewViewModel()
         {
 

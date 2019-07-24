@@ -1,18 +1,27 @@
-﻿using Prism.Commands;
+﻿using DependencyInjectionSample.Core;
+using Prism.Events;
 using Prism.Mvvm;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Threading;
 
 namespace DependencyInjectionSample.Header.ViewModels
 {
     public class HeaderViewModel : BindableBase
     {
+        /// <summary>
+        /// タイマ
+        /// </summary>
         private DispatcherTimer timer;
 
+        #region インタフェース
+        /// <summary>
+        /// EventAggregator
+        /// </summary>
+        private readonly IEventAggregator _eventAggregator;
+        #endregion
+
         #region コマンド・プロパティ
-        private string _userName = "John Smith";
+        private string _userName = "Guest";
         /// <summary>
         /// ユーザー名
         /// </summary>
@@ -40,9 +49,17 @@ namespace DependencyInjectionSample.Header.ViewModels
             set { SetProperty(ref _battery, value); }
         }
         #endregion
-
-        public HeaderViewModel()
+        
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="eventAggregator"></param>
+        public HeaderViewModel(IEventAggregator eventAggregator)
         {
+            // インタフェースを受け取る
+            _eventAggregator = eventAggregator;
+            _eventAggregator.GetEvent<MessageSentEvent>().Subscribe(UserNameReceived);
+
             // タイマの開始
             timer = new DispatcherTimer(DispatcherPriority.Normal)
             {
@@ -58,6 +75,18 @@ namespace DependencyInjectionSample.Header.ViewModels
             timer.Start();
         }
 
+        /// <summary>
+        /// ユーザー名取得イベント
+        /// </summary>
+        /// <param name="message"></param>
+        private void UserNameReceived(string message)
+        {
+            UserName = message;
+        }
+
+        /// <summary>
+        /// デストラクタ
+        /// </summary>
         ~HeaderViewModel()
         {
             timer.Stop();
