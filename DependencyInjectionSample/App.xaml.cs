@@ -4,6 +4,7 @@ using DependencyInjectionSample.Header;
 using DependencyInjectionSample.Views;
 using Prism.Ioc;
 using Prism.Modularity;
+using Prism.Unity;
 using System.Windows;
 
 namespace DependencyInjectionSample
@@ -11,7 +12,7 @@ namespace DependencyInjectionSample
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App
+    public partial class App : PrismApplication
     {
         protected override Window CreateShell()
         {

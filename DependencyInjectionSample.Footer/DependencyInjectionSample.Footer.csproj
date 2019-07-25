@@ -77,7 +77,12 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DependencyInjectionSample.Content\DependencyInjectionSample.Content.csproj">
+      <Project>{fa822c6e-8742-4466-9d3f-d77e090f2a1c}</Project>
+      <Name>DependencyInjectionSample.Content</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Views\Footer.xaml">
       <SubType>Designer</SubType>

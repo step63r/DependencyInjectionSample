@@ -1,15 +1,11 @@
-﻿using Prism.Commands;
+﻿using DependencyInjectionSample.Content.Common;
+using Prism.Commands;
 using Prism.Mvvm;
-using Prism.Regions;
-using System;
 
 namespace DependencyInjectionSample.Footer.ViewModels
 {
     public class FooterViewModel : BindableBase
     {
-        #region インタフェース
-        #endregion
-
         #region コマンド・プロパティ
         /// <summary>
         /// 戻るコマンド
@@ -36,7 +32,7 @@ namespace DependencyInjectionSample.Footer.ViewModels
         /// </summary>
         private void ExecuteGoBack()
         {
-            
+            ContentJournal.Journal.GoBack();
         }
         /// <summary>
         /// 戻るコマンドが実行可能かどうかを安定
@@ -44,6 +40,7 @@ namespace DependencyInjectionSample.Footer.ViewModels
         /// <returns>戻り先の履歴があればtrue</returns>
         private bool CanExecuteGoBack()
         {
+            //return ContentJournal.Journal != null && ContentJournal.Journal.CanGoBack;
             return true;
         }
 
@@ -52,7 +49,7 @@ namespace DependencyInjectionSample.Footer.ViewModels
         /// </summary>
         private void ExecuteGoForward()
         {
-            
+            ContentJournal.Journal.GoForward();
         }
         /// <summary>
         /// 進むコマンドが実行可能かどうかを判定
@@ -60,6 +57,7 @@ namespace DependencyInjectionSample.Footer.ViewModels
         /// <returns>進み先の履歴があればtrue</returns>
         private bool CanExecuteGoForward()
         {
+            //return ContentJournal.Journal != null && ContentJournal.Journal.CanGoForward;
             return true;
         }
     }

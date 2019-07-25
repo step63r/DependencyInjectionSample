@@ -1,4 +1,5 @@
-﻿using DependencyInjectionSample.Content.Views;
+﻿using DependencyInjectionSample.Content.Common;
+using DependencyInjectionSample.Content.Views;
 using DependencyInjectionSample.Core;
 using Prism.Commands;
 using Prism.Events;
@@ -7,7 +8,7 @@ using Prism.Regions;
 
 namespace DependencyInjectionSample.Content.ViewModels
 {
-    public class LoginPageViewModel : BindableBase
+    public class LoginPageViewModel : BindableBase, INavigationAware
     {
         #region インタフェース
         /// <summary>
@@ -78,6 +79,21 @@ namespace DependencyInjectionSample.Content.ViewModels
         private bool CanExecuteLogin()
         {
             return !(string.IsNullOrEmpty(UserID) || string.IsNullOrEmpty(Password));
+        }
+
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            return true;
+        }
+
+        public void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            ContentJournal.Journal = navigationContext.NavigationService.Journal;
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+            ContentJournal.Journal = navigationContext.NavigationService.Journal;
         }
     }
 }

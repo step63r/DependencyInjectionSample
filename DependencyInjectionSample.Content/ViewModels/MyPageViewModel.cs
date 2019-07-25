@@ -1,8 +1,10 @@
-﻿using Prism.Mvvm;
+﻿using DependencyInjectionSample.Content.Common;
+using Prism.Mvvm;
+using Prism.Regions;
 
 namespace DependencyInjectionSample.Content.ViewModels
 {
-    public class MyPageViewModel : BindableBase
+    public class MyPageViewModel : BindableBase, INavigationAware
     {
         /// <summary>
         /// コンストラクタ
@@ -10,6 +12,21 @@ namespace DependencyInjectionSample.Content.ViewModels
         public MyPageViewModel()
         {
 
+        }
+
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            return true;
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+            ContentJournal.Journal = navigationContext.NavigationService.Journal;
+        }
+
+        public void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            ContentJournal.Journal = navigationContext.NavigationService.Journal;
         }
     }
 }
