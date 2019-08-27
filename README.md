@@ -36,7 +36,7 @@ It is **NOT** recommended to upgrade ``Unity.Abstractions`` and ``Unity.Containe
 
 ## License
 
-Pending...
+MIT License
 
 ## Author
 
